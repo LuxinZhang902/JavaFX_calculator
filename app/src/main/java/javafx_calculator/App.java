@@ -95,6 +95,9 @@ public class App extends Application {
         //create Scene, we can pass gp to its constructor as the root of the Scene:
         Scene scene = new Scene(gp, 640, 480);
 
+        URL cssResource = getClass().getResource("/ui/calcbuttons.css");
+        scene.getStylesheets().add(cssResource.toString());
+
 
         //A window is called a stage
         stage.setScene(scene);
