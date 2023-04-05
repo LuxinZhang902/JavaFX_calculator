@@ -4,6 +4,7 @@
 package javafx_calculator;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -14,73 +15,82 @@ import javafx.stage.Stage;
 
 import javafx.scene.layout.GridPane;
 
+import java.io.IOException;
+import java.net.URL;
+
 public class App extends Application {
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage) throws IOException {
         String javaVersion = System.getProperty("java.version");
         String javafxVersion = System.getProperty("javafx.version");
 
 
         //Here is what will display on the new window
         //Label: a UI component for displaying text: shows a string on the screen
-        Label l = new Label("Hello, JavaFX " + javafxVersion +
-                ", running on Java " +
-                javaVersion + ".");
+//        Label l = new Label("Hello, JavaFX " + javafxVersion +
+//                ", running on Java " +
+//                javaVersion + ".");
 
-        GridPane gp = new GridPane();
-        String[] labels= new String[] {"+", "-", "*", "/",
-                "7", "8", "9",
-                "4", "5", "6",
-                "1", "2","3",
-                "."};
-        int rows[] = new int [] {0, 0, 0,0,
-                1,1,1,
-                2,2,2,
-                3,3,3,
-                4};
-        int cols [] = new int[] {0,1,2,3,
-                0,1,2,
-                0,1,2,
-                0,1,2,
-                2 };
+        URL xmlResource = getClass().getResource("/ui/calcbuttons.xml");
+        GridPane gp = FXMLLoader.load(xmlResource);
+
+
+
+
+//        GridPane gp = new GridPane();
+//        String[] labels= new String[] {"+", "-", "*", "/",
+//                "7", "8", "9",
+//                "4", "5", "6",
+//                "1", "2","3",
+//                "."};
+//        int rows[] = new int [] {0, 0, 0,0,
+//                1,1,1,
+//                2,2,2,
+//                3,3,3,
+//                4};
+//        int cols [] = new int[] {0,1,2,3,
+//                0,1,2,
+//                0,1,2,
+//                0,1,2,
+//                2 };
+////        for (int i =0; i < labels.length; i++) {
+////            Button b = new Button(labels[i]);
+////            gp.add(b, cols[i], rows[i]);
+////        }
+////        gp.add(new Button("0"), 0,4,2,1);
+////        gp.add(new Button("E\nn\nt\ne\nr"), 3,1,1,3);
+//
+//
 //        for (int i =0; i < labels.length; i++) {
 //            Button b = new Button(labels[i]);
 //            gp.add(b, cols[i], rows[i]);
+//            b.setMaxWidth(Double.MAX_VALUE);
+//            b.setMaxHeight(Double.MAX_VALUE);
 //        }
-//        gp.add(new Button("0"), 0,4,2,1);
-//        gp.add(new Button("E\nn\nt\ne\nr"), 3,1,1,3);
-
-
-        for (int i =0; i < labels.length; i++) {
-            Button b = new Button(labels[i]);
-            gp.add(b, cols[i], rows[i]);
-            b.setMaxWidth(Double.MAX_VALUE);
-            b.setMaxHeight(Double.MAX_VALUE);
-        }
-        Button b = new Button("0");
-        b.setMaxWidth(Double.MAX_VALUE);
-        b.setMaxHeight(Double.MAX_VALUE);
-        gp.add(b, 0,4,2,1);
-        b = new Button("E\nn\nt\ne\nr");
-        b.setMaxWidth(Double.MAX_VALUE);
-        b.setMaxHeight(Double.MAX_VALUE);
-        gp.add(b, 3,1,1,3);
-
-//
-//        b = new Button("=");
+//        Button b = new Button("0");
 //        b.setMaxWidth(Double.MAX_VALUE);
 //        b.setMaxHeight(Double.MAX_VALUE);
-//        gp.add(b, 3,4,1,1);
-        for (int i =0; i < 4; i++) {
-            ColumnConstraints cc = new ColumnConstraints();
-            cc.setPercentWidth(25);
-            gp.getColumnConstraints().add(cc);
-        }
-        for(int i =0; i < 5; i++) {
-            RowConstraints rc = new RowConstraints();
-            rc.setPercentHeight(20);
-            gp.getRowConstraints().add(rc);
-        }
+//        gp.add(b, 0,4,2,1);
+//        b = new Button("E\nn\nt\ne\nr");
+//        b.setMaxWidth(Double.MAX_VALUE);
+//        b.setMaxHeight(Double.MAX_VALUE);
+//        gp.add(b, 3,1,1,3);
+//
+////
+////        b = new Button("=");
+////        b.setMaxWidth(Double.MAX_VALUE);
+////        b.setMaxHeight(Double.MAX_VALUE);
+////        gp.add(b, 3,4,1,1);
+//        for (int i =0; i < 4; i++) {
+//            ColumnConstraints cc = new ColumnConstraints();
+//            cc.setPercentWidth(25);
+//            gp.getColumnConstraints().add(cc);
+//        }
+//        for(int i =0; i < 5; i++) {
+//            RowConstraints rc = new RowConstraints();
+//            rc.setPercentHeight(20);
+//            gp.getRowConstraints().add(rc);
+//        }
 
         //create Scene, we can pass gp to its constructor as the root of the Scene:
         Scene scene = new Scene(gp, 640, 480);
