@@ -32,6 +32,7 @@ public class App extends Application {
 //                javaVersion + ".");
 
         URL xmlResource = getClass().getResource("/ui/calcbuttons.xml");
+        System.out.println(xmlResource);
         GridPane gp = FXMLLoader.load(xmlResource);
 
 

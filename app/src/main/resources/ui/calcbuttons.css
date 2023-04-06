@@ -2,3 +2,22 @@
     -fx-max-width:  infinity;
     -fx-max-height: infinity;
 }
+.numbtn {
+    -fx-background-color: black,#012169;
+    -fx-text-fill: ivory;
+    -fx-background-radius: 10, 10;
+    -fx-background-insets: 2, 5;
+}
+
+.numbtn:hover {
+    -fx-background-color: #333355, #101169;
+    -fx-text-fill: ivory;
+    -fx-background-radius: 10, 10;
+    -fx-background-insets: 2, 5;
+}
+.numbtn:pressed {
+    -fx-background-color: #000029, #000149;
+    -fx-text-fill: ivory;
+    -fx-background-radius: 10, 10;
+    -fx-background-insets: 2, 5;
+}

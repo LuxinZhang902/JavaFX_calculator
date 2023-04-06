@@ -5,18 +5,42 @@ buildscript {
     }
     dependencies {
         classpath 'com.bmuschko:gradle-clover-plugin:3.0.3'
+
     }
 
     
 }
 
 allprojects{
+//    plugins {
+//        id 'java'
+//        id 'org.junit.jupiter' version '5.7.2'
+//    }
+
     repositories {
         mavenCentral()
     }
     apply plugin: 'com.bmuschko.clover'
     dependencies {
         clover 'org.openclover:clover:4.4.1'
+//        testImplementation 'org.junit.jupiter:junit-jupiter:5.7.2'
+//
+//        // This dependency is used by the application.
+//        implementation 'com.google.guava:guava:30.1.1-jre'
+//
+//        //Junit Tests
+//        testImplementation 'org.junit.platform:junit-platform-launcher:1.6.2'
+//
+//        //Mockito
+//        testImplementation "org.mockito:mockito-core:2.+"
+//
+//        //TestFX
+//        testImplementation "org.testfx:testfx-core:4.0.16-alpha"
+//        testImplementation "org.testfx:testfx-junit5:4.0.16-alpha"
+//
+//        //Testing without a real GUI
+//        testImplementation 'org.testfx:openjfx-monocle:jdk-12.0.1+2'
+
     }
 }
 clover{
