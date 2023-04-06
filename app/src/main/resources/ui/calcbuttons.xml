@@ -9,7 +9,8 @@
 <?import java.lang.Double?>
 
 
-<GridPane xmlns:fx="http://javafx.com/fxml">
+<GridPane xmlns:fx="http://javafx.com/fxml"
+          fx:controller="javafx_calculator.controller.NumButtonController">
     <columnConstraints>
         <ColumnConstraints percentWidth="60" />
         <ColumnConstraints percentWidth="20" />
@@ -42,7 +43,8 @@
                 <Button text="7"
                         GridPane.rowIndex="1"
                         GridPane.columnIndex="0"
-                        styleClass="expandable,numbtn"/>
+                        styleClass="expandable,numbtn"
+                        onAction="#onNumberButton"/>
                 <Button text="8"
                         GridPane.rowIndex="1"
                         GridPane.columnIndex="1"

@@ -7,19 +7,20 @@ buildscript {
         classpath 'com.bmuschko:gradle-clover-plugin:3.0.3'
     }
 
-    
+
 }
 
-allprojects{
+allprojects {
     repositories {
         mavenCentral()
     }
+    apply plugin: 'base'
     apply plugin: 'com.bmuschko.clover'
     dependencies {
         clover 'org.openclover:clover:4.4.1'
     }
 }
-clover{
+clover {
     compiler {
         additionalArgs = "-g:lines,source,vars"
     }
