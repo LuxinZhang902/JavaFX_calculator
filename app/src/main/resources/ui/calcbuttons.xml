@@ -24,7 +24,8 @@
         <Button text="-" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="expandable"/>
         <Button text="*" GridPane.rowIndex="0" GridPane.columnIndex="2" styleClass="expandable"/>
         <Button text="/" GridPane.rowIndex="0" GridPane.columnIndex="3" styleClass="expandable"/>
-        <Button text="7" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="expandable"/>
+<!--        <Button text="7" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="expandable"/>-->
+        <Button text="7" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="expandable,numbtn"/>
         <Button text="8" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="expandable"/>
         <Button text="9" GridPane.rowIndex="1" GridPane.columnIndex="2" styleClass="expandable"/>
         <Button text="${'E\nn\nt\ne\nr'}" GridPane.rowIndex="1" GridPane.columnIndex="3" GridPane.rowSpan="3" styleClass="expandable"/>
