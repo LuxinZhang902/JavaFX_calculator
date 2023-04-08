@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 
 import javafx.scene.layout.GridPane;
 import javafx_calculator.controller.CalculatorController;
+import javafx_calculator.controller.ErrorReporter;
 import javafx_calculator.controller.NumButtonController;
 import javafx_calculator.model.RPNStack;
 
@@ -32,7 +33,7 @@ public class App extends Application {
         loader.setControllerFactory((c) -> {
             return controllers.get(c);
         });
-
+        Thread.setDefaultUncaughtExceptionHandler(new ErrorReporter());
 
 //        URL xmlResource = getClass().getResource("/ui/calc-split.xml");
 //        GridPane gp = FXMLLoader.load(xmlResource);
