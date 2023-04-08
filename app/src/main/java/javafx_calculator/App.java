@@ -6,24 +6,47 @@ package javafx_calculator;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 import javafx.scene.layout.GridPane;
+import javafx_calculator.controller.CalculatorController;
+import javafx_calculator.controller.NumButtonController;
+import javafx_calculator.model.RPNStack;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
 
 public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        URL xmlResource = getClass().getResource("/ui/calc-monolithic-controller.xml");
-        GridPane gp = FXMLLoader.load(xmlResource);
+
+        RPNStack model = new RPNStack();
+        URL xmlResource = getClass().getResource("/ui/calc-split.xml");
+        FXMLLoader loader = new FXMLLoader(xmlResource);
+
+        HashMap<Class<?>,Object> controllers = new HashMap<>();
+        controllers.put(NumButtonController.class, new NumButtonController(model));
+        controllers.put(CalculatorController.class, new CalculatorController());
+        loader.setControllerFactory((c) -> {
+            return controllers.get(c);
+        });
+
+
+//        URL xmlResource = getClass().getResource("/ui/calc-split.xml");
+//        GridPane gp = FXMLLoader.load(xmlResource);
+        GridPane gp = loader.load();
 
         //create Scene, we can pass gp to its constructor as the root of the Scene:
         Scene scene = new Scene(gp, 640, 480);
 
         URL cssResource = getClass().getResource("/ui/calcbuttons.css");
         scene.getStylesheets().add(cssResource.toString());
+
+        @SuppressWarnings("unchecked")
+        ListView<Double> operands = (ListView<Double>) scene.lookup("#rpnstack");
+        operands.setItems(model.getList());
 
 
         //A window is called a stage
