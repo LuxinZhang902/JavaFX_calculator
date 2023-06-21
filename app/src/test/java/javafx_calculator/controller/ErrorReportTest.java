@@ -39,6 +39,7 @@ public class ErrorReportTest {
             Node ok = errorDialog.lookupButton(ButtonType.OK);
             assertNotNull(ok);
             robot.clickOn(ok);
-        } }
+        }
+    }
 
 }

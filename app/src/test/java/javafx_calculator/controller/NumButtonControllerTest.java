@@ -18,6 +18,8 @@ import org.testfx.framework.junit5.Start;
 import org.testfx.matcher.control.TextInputControlMatchers;
 import org.testfx.util.WaitForAsyncUtils;
 
+import java.awt.event.MouseEvent;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
@@ -40,6 +42,8 @@ public class NumButtonControllerTest {
         Platform.runLater(()->{
             Button b = new Button("7");
             cont.onNumberButton(new ActionEvent(b,  null));
+//            cont.onNumberButton(new MouseEvent(b,  null));
+
         });
         WaitForAsyncUtils.waitForFxEvents();
         FxAssert.verifyThat(testText, TextInputControlMatchers.hasText("7"));

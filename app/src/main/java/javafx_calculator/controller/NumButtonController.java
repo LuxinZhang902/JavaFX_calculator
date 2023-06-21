@@ -10,9 +10,9 @@ public class NumButtonController {
     @FXML
     TextField currentNumber;
     RPNStack model;
-    public NumButtonController() {
-        // constructor code goes here
-    }
+    //public NumButtonController() {
+//        // constructor code goes here
+//    }
     public NumButtonController(RPNStack model) {
         this.model = model;
     }
